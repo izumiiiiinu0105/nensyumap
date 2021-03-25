@@ -1,5 +1,5 @@
 body {
-  font-family: "Cormorant Garamond","Helvetica Neue",Arial,"Hiragino Kaku Gothic ProN","Hiragino Sans",Meiryo,sans-serif;
+  font-family: "Montserrat","Helvetica Neue",Arial,"Hiragino Kaku Gothic ProN","Hiragino Sans",Meiryo,sans-serif;
   font-size: 14px;
   line-height: 1.8;
   letter-spacing: .8px;
@@ -9,7 +9,7 @@ body {
 a {
   transition: opacity .3s;
   text-decoration: none;
-  color: #16cec5;
+  color: #1ca9e3;
 }
 
 img {
@@ -35,8 +35,16 @@ li {
 /*--------------------------------
  レイアウト
 ---------------------------------*/
+.wrapper {
+  padding-top: 73px;
+}
+
 .section {
-  padding: 100px 0;
+  padding: 90px 0;
+}
+
+.section:nth-of-type(odd) {
+  background-color: #f7f7f7;
 }
 
 .inner {
@@ -50,11 +58,12 @@ li {
 ---------------------------------*/
 .title {
   font-size: 34px;
+  font-weight: bold;
   line-height: 1;
   margin-bottom: 40px;
   text-align: center;
-  letter-spacing: .1em;
-  color: #f5b5d5;
+  letter-spacing: .05em;
+  color: #333;
 }
 
 .lead {
@@ -62,102 +71,100 @@ li {
 }
 
 /*--------------------------------
- header
+ヘッダー
 ---------------------------------*/
 .header {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 65vh;
-  text-align: center;
-}
-
-.header-inner {
-  padding: 0 40px;
-}
-
-.header-title {
-  font-family: "Dancing Script", cursive;
-  font-size: 72px;
-  line-height: 1.2;
-  margin-bottom: 20px;
-  color: #f5b5d5;
-}
-.header-subtitle {
-  font-family: "Amatic SC", cursive;
-  font-size: 30px;
-  line-height: 1;
-  letter-spacing: .08em;
-}
-
-/*--------------------------------
- 下層ページのheader
----------------------------------*/
-.sub-header {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px 0 10px;
-  text-align: center;
-}
-
-.sub-header-inner {
-  padding: 0 40px;
-}
-
-.sub-header-title {
-  font-family: "Dancing Script", cursive;
-  font-size: 40px;
-  line-height: 1.2;
-  margin-bottom: 5px;
-  color: #f5b5d5;
-}
-.sub-header-subtitle {
-  font-family: "Amatic SC", cursive;
-  font-size: 16px;
-  line-height: 1;
-  letter-spacing: .08em;
-  color: #333;
-}
-
-/*--------------------------------
-グローバルナビ
----------------------------------*/
-.gnav {
-  position: sticky;
+  position: fixed;
   top: 0;
   z-index: 1;
   width: 100%;
   background-color: #fff;
+  box-shadow: 0 5px 10px -6px rgba(0,0,0,.1);
 }
 
-.gnav-inner {
-  padding: 15px 40px;
-}
-
-.gnav-list {
+.header .inner {
   display: flex;
-  justify-content: center;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 40px;
 }
 
-.gnav-item {
-  margin: 0 20px;
-}
-
-.gnav-item a {
-  position: relative;
-  font-size: 18px;
+.header-logo {
+  font-size: 20px;
   font-weight: bold;
-  line-height: 1;
+  line-height: 1.2;
+  margin-right: 20px;
+  letter-spacing: .05em;
+}
+
+.header-logo a {
+  color: #333;
+}
+
+.header-nav-list {
+  display: flex;
+  justify-content: space-between;
+}
+
+.header-nav-item:not(:last-child) {
+  margin-right: 20px;
+}
+
+.header-nav-item a {
+  position: relative;
+  font-size: 13px;
+  font-weight: bold;
   display: inline-block;
   padding: 5px 0;
   transition: .3s;
   letter-spacing: .05em;
   color: #333;
 }
+.header-nav-item a:after {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 3px;
+  content: "";
+  transition: .3s;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  background-color: #333;
+}
 
-.gnav-item a:hover {
-  opacity: .8;
+.header-nav-item a:hover:after {
+  width: 100%;
+}
+
+/*--------------------------------
+ メインビジュアル
+---------------------------------*/
+.main-visual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 85vh;
+  text-align: center;
+}
+
+.main-visual-inner {
+  padding: 0 40px;
+}
+
+.main-visual-title {
+  font-size: 60px;
+  font-weight: bold;
+  line-height: 1.2;
+  margin-bottom: 5px;
+  letter-spacing: .1em;
+}
+.main-visual-subtitle {
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 1;
+  margin-bottom: 40px;
+  letter-spacing: .08em;
 }
 
 /*--------------------------------
@@ -276,12 +283,12 @@ li {
   padding: 10px;
   cursor: pointer;
   text-align: center;
-  background-color: #fadcea;
+  background-color: #4c4c4c;
 }
 
 .page-top .material-icons-outlined {
   vertical-align: bottom;
-  color: #333;
+  color: #fff;
 }
 
 /*--------------------------------
@@ -289,7 +296,7 @@ li {
 ---------------------------------*/
 .footer {
   padding: 30px;
-  background-color: #efc4d8;
+  background-color: #333;
 }
 
 .copyright {
@@ -365,6 +372,10 @@ li {
   }
 
   /* レイアウト */
+  .wrapper {
+    padding-top: 57px;
+  }
+
   .section {
     padding: 60px 0;
   }
@@ -373,55 +384,43 @@ li {
     padding: 0 20px;
   }
 
-  /*  header */
-  .header {
-    height: 60vh;
-  }
-
-  .header-inner {
-    padding: 0 20px;
-  }
-
-  .header-title {
-    font-size: 40px;
-    margin-bottom: 10px;
-  }
-  .header-subtitle {
-    font-size: 18px;
-  }
-
-  /*  下層ページのheader */
-  .sub-header-inner {
-    padding: 0 40px;
-  }
-
-  .sub-header-title {
-    font-family: "Dancing Script", cursive;
-    font-size: 24px;
-  }
-  .sub-header-subtitle {
-    font-size: 14px;
-  }
-
-  /* グローバルナビ */
-  .gnav .inner {
+  /* ヘッダー */
+  .header .inner {
     padding: 15px;
   }
 
-  .gnav-logo {
+  .header-logo {
     font-size: 15px;
+    margin-right: 15px;
   }
 
-  .gnav-item:not(:last-child) {
+  .header-nav-item:not(:last-child) {
     margin-right: 10px;
   }
 
-  .gnav-item a {
-    font-size: 12px;
+  .header-nav-item a {
+    font-size: 10px;
   }
 
-  .gnav-item a:after {
+  .header-nav-item a:after {
     display: none;
+  }
+
+  /*  メインビジュアル */
+  .main-visual {
+    height: 75vh;
+  }
+
+  .main-visual-inner {
+    padding: 0 20px;
+  }
+
+  .main-visual-title {
+    font-size: 30px;
+  }
+  .main-visual-subtitle {
+    font-size: 16px;
+    margin-bottom: 20px;
   }
 
   /* Works */
@@ -475,6 +474,6 @@ li {
 
   /* 下層ページ */
   .article {
-    padding: 30px 0;
+    padding: 50px 0;
   }
 }

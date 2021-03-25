@@ -1,7 +1,7 @@
 $(function () {
 
   //ページ内スクロール
-  var navHeight = $(".gnav").outerHeight();
+  var navHeight = $(".header").outerHeight();
 
   $('a[href^="#"]').on("click", function () {
     var href = $(this).attr("href");
